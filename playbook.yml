@@ -1,0 +1,14 @@
+---
+ - name: Install and start httpd server
+   hosts: ansible_servers
+   remote_user: ec2-user
+   become: true
+   tasks:
+     - name: install httpd
+       yum:
+         name: httpd
+         state: latest
+     - name: start httpd
+       service:
+         name: httpd
+         state: started
